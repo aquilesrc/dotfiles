@@ -111,6 +111,13 @@ local function override_highlights()
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#282828", })
     vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#282828", })
     vim.api.nvim_set_hl(0, "LineNr", { fg = "#646464", })
+    vim.api.nvim_set_hl(0, "@markup.heading.1.markdown", { fg = "#ffdd33", bold = true })
+    vim.api.nvim_set_hl(0, "@markup.heading.2.markdown", { fg = "#ffdd33", bold = true })
+    vim.api.nvim_set_hl(0, "@markup.heading.3.markdown", { fg = "#ffdd33", bold = true })
+    vim.api.nvim_set_hl(0, "@markup.heading.4.markdown", { fg = "#ffdd33", bold = true })
+    vim.api.nvim_set_hl(0, "@markup.heading.5.markdown", { fg = "#ffdd33", bold = true })
+    vim.api.nvim_set_hl(0, "@markup.heading.6.markdown", { fg = "#ffdd33", bold = true })
+    vim.api.nvim_set_hl(0, "@markup.quote.markdown", { link = "GruberDarkerBrown" })
 end
 override_highlights()
 
