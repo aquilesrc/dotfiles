@@ -1,0 +1,41 @@
+set selection-clipboard clipboard
+set n-completion-items 10
+set window-title-basename true
+set page-padding 1
+
+set font "JetBrainsMono Nerd Font 9"
+
+set default-bg                  "#000000"
+
+set notification-error-bg       "#ff5454"
+set notification-error-fg       "#000000"
+set notification-warning-bg     "#e3c78a"
+set notification-warning-fg     "#000000"
+set notification-bg             "#ebdbb2"
+set notification-fg             "#000000"
+
+set completion-bg               "#000000"
+set completion-fg               "#eeeeee"
+set completion-group-bg         "#282828"
+set completion-group-fg         "#eeeeee"
+set completion-highlight-bg     "#95c0d5"
+set completion-highlight-fg     "#000000"
+
+set index-bg                    "#000000"
+set index-fg                    "#eeeeee"
+
+set inputbar-bg                 "#000000"
+set inputbar-fg                 "#eeeeee"
+set statusbar-bg                "#000000"
+set statusbar-fg                "#eeeeee"
+
+set highlight-color             rgba(128,179,158,0.5)
+set highlight-active-color      rgba(128,179,158,0.5)
+
+# Recolor mode settings
+# set recolor
+set recolor-keephue true
+set recolor-lightcolor          "#000000"
+set recolor-darkcolor           "#eeeeee"
+# set recolor-lightcolor          "#ebdbb2"
+# set recolor-darkcolor           "#000000"

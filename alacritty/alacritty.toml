@@ -1,0 +1,46 @@
+# [terminal.shell]
+# program = "tmux"
+
+[font.normal]
+# family = "JetBrainsMonoNerdFont"
+family = "IosevkaNF"
+style = "Bold"
+
+[font]
+size = 14
+
+[scrolling]
+history = 1000
+multiplier = 1
+
+[selection]
+save_to_clipboard = true
+
+[window]
+opacity = 1
+padding = { x = 5, y = 5 }
+blur = false
+
+[colors.primary]
+background = "#111111"
+foreground = "#e5e7eb"
+
+[colors.normal]
+black = "#252525"
+blue = "#a1c0eb"
+cyan = "#79dac8"
+green = "#8cc85f"
+magenta = "#cf87e8"
+red = "#ff5454"
+yellow = "#ffcb6b"
+white = "#c6c6c6"
+
+[colors.bright]
+black = "#949494"
+blue = "#a1c0eb"
+cyan = "#79dac8"
+green = "#8cc85f"
+magenta = "#cf87e8"
+red = "#ff5454"
+yellow = "#ffcb6b"
+white = "#e4e4e4"

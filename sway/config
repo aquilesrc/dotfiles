@@ -1,0 +1,186 @@
+# Autostart
+exec_always {
+    gsettings set org.gnome.desktop.interface gtk-theme "Plata-BlueGrey-Noir-Compact"
+    gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
+    gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
+    gsettings set org.gnome.desktop.interface font-name "Fira Sans Condensed 10"
+
+    # export XDG_CURRENT_DESKTOP=sway
+    systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+    dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+    # /usr/lib/xdg-desktop-portal -r
+}
+
+# Keyboard layout
+input "type:keyboard" {
+    xkb_layout br
+    xkb_options caps:escape
+}
+  
+# Variables
+set $super Mod4
+set $alt Mod1
+set $terminal kitty
+set $editor $terminal nvim
+set $launcher rofi -drun-display-format "{name}" -show drun
+set $browser firefox
+set $fileManager $terminal -e ranger
+
+# Appearance
+# font pango:JetBrainsMono NF SemiBold 9
+font pango:IosevkaNF SemiBold 10
+
+# output * bg "~/Imagens/Wallpapers/od_tetris.png" fill
+output * bg #1e2127 solid_color
+
+# Cursor
+seat seat0 hide_cursor 3000
+
+# Borders
+default_border pixel 2
+default_floating_border normal
+title_align center
+hide_edge_borders smart
+smart_borders on
+titlebar_padding 1
+titlebar_border_thickness 0
+
+# Gaps
+gaps inner 0px
+gaps outer 0px
+smart_gaps no
+
+# Colors
+# client.focused "#8cc85f" "#8cc85f" "#000000" "#8cc85f"
+client.focused "#a1c0eb" "#a1c0eb" "#000000" "#a1c0eb"
+client.focused_inactive "#464646" "#464646" "#eeeeee" "#000000"
+client.unfocused "#282828" "#282828" "#eeeeee" "#000000"
+client.urgent "#ffcb6b" "#ffcb6b" "#000000" "#ffcb6b"
+client.background "#000000"
+
+# Floating Windows
+floating_modifier $super normal
+
+# Layout stuff
+workspace_layout default
+bindsym $super+c splith
+bindsym $super+v splitv
+bindsym $super+s layout toggle split
+bindsym $super+f fullscreen
+bindsym $super+t layout tabbed
+bindsym $super+Shift+space floating toggle
+bindsym $super+space focus mode_toggle
+
+# Focus
+bindsym $super+h focus left
+bindsym $super+j focus down
+bindsym $super+k focus up
+bindsym $super+l focus right
+
+focus_follows_mouse no
+focus_wrapping no
+
+# Move focused window
+bindsym $super+Shift+h move left
+bindsym $super+Shift+j move down
+bindsym $super+Shift+k move up
+bindsym $super+Shift+l move right
+
+# Workspaces Navigation
+bindsym $super+1 workspace number 1
+bindsym $super+2 workspace number 2
+bindsym $super+3 workspace number 3
+bindsym $super+4 workspace number 4
+bindsym $super+5 workspace number 5
+bindsym $super+6 workspace number 6
+bindsym $super+7 workspace number 7
+bindsym $super+8 workspace number 8
+bindsym $super+9 workspace number 9
+bindsym $super+0 workspace number 10
+
+bindsym $super+Shift+1 move container to workspace number 1
+bindsym $super+Shift+2 move container to workspace number 2
+bindsym $super+Shift+3 move container to workspace number 3
+bindsym $super+Shift+4 move container to workspace number 4
+bindsym $super+Shift+5 move container to workspace number 5
+bindsym $super+Shift+6 move container to workspace number 6
+bindsym $super+Shift+7 move container to workspace number 7
+bindsym $super+Shift+8 move container to workspace number 8
+bindsym $super+Shift+9 move container to workspace number 9
+bindsym $super+Shift+0 move container to workspace number 10
+
+# Window Manager Shortcuts
+bindsym $super+w kill
+bindsym $super+Shift+r reload
+bindsym $super+Shift+q exit
+
+# Resize Windows
+bindsym $super+$alt+h resize shrink width 15 px
+bindsym $super+$alt+j resize grow height 15 px
+bindsym $super+$alt+k resize shrink height 15 px
+bindsym $super+$alt+l resize grow width 15 px
+
+# Launchers
+bindsym $super+Return exec $terminal
+bindsym $super+Shift+Return exec $editor
+bindsym $super+b exec $browser
+bindsym $super+d exec $launcher
+bindsym $super+e exec $fileManager
+bindsym $super+Shift+e exec pcmanfm
+bindsym $super+Shift+c exec $terminal -e qalc
+bindsym $super+Shift+z exec zathura
+bindsym $super+Escape exec $terminal -e btop
+
+# Screenshot
+bindsym $super+Shift+S exec grim -g "$(slurp)" - | wl-copy
+bindsym $super+$alt+S exec grim - | wl-copy
+# bindsym Print exec grimshot copy area
+# bindsym $super+Print exec grimshot copy screen
+# bindsym Shift+Print exec grim -g "$(slurp)" ~/ps_$(date +"%Y%m%d%H%M%S").png
+# bindsym Print exec grim -g "$(slurp -c '#ff0000ff')" - | satty --filename - --fullscreen --output-filename ~/Imagens/Capturas\ de\ tela/satty-$(date '+%Y%m%d-%H:%M:%S').png
+
+# Media control
+bindsym $super+m exec --no-startup-id pamixer -i 5
+bindsym $super+n exec --no-startup-id pamixer -d 5
+bindsym $super+Shift+m exec --no-startup-id pamixer -t
+bindsym $super+p exec --no-startup-id playerctl play-pause @DEFAULT_SOURCE@ toggle
+bindsym $super+Shift+n exec --no-startup-id playerctl next
+bindsym $super+Shift+p exec --no-startup-id playerctl previous
+
+# Window rules
+for_window {
+    [app_id="waypaper"] floating enable
+    [app_id="qalculate"] floating enable
+    [window_role="pop-up"] floating enable
+    [window_role="bubble"] floating enable
+    [window_role="dialog"] floating enable
+    [window_type="dialog"] floating enable
+    [shell="xwayland"] title_format "[XWayland] %title"
+}
+
+# Waybar
+# bar {
+#     swaybar_command waybar
+# }
+
+# Sway bar
+bar {
+    status_command i3status -c ~/.config/sway/i3status.conf
+    position bottom
+    tray_padding 2
+    height 18
+    separator_symbol "||"
+
+    # Disable scroll wheel
+    bindsym button4 nop
+    bindsym button5 nop
+
+    colors {
+        statusline #eeeeee
+        background #000000
+
+        focused_workspace  #000000 #a1c0eb #000000
+        inactive_workspace #000000 #282828 #eeeeee
+        urgent_workspace   #000000 #ffcb6b #000000
+    }
+}

@@ -1,0 +1,51 @@
+* {
+    background-color: #000000;
+    border-color:     #a1c0eb;
+    text-color:       #eeeeee;
+    font:             "JetBrainsMono Nerd Font SemiBold 10";
+}
+
+window {
+    anchor:     center;
+    location:   center;
+    width:      30%;
+    padding:    3px;
+    children:   [ horibox ];
+    border:     2px;
+}
+
+horibox {
+    orientation: vertical;
+    children:   [entry, listview ];
+}
+
+listview {
+    layout:  vertical;
+    spacing: 8px;
+    lines:   8;
+    padding: 2px;
+}
+
+entry {
+    expand:       false;
+    border-color: #888;
+    layout:       vertical;
+    border:       2px;
+    width:        10em;
+    padding:      2px 5px;
+}
+
+element {
+    padding:  0px 2px;
+    children: [element-text];
+}
+
+element selected {
+    background-color: #a1c0eb;
+    text-color:       #000000;
+}
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color: inherit;
+}
