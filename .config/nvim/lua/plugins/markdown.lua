@@ -51,7 +51,7 @@ require("markdown-plus").setup({
         default_alignment = "center",
         confirm_destructive = true,
         width_mode = "literal", -- "literal" | "segment"  set "segment" so cells
-        -- containing <br> don't inflate column width
+        -- containing <br> don' inflate column width
         wrap_break = "<br>",    -- token used by wrap/break commands and the
         -- cell-editor popup join
         max_column_width = nil, -- integer ≥ 1 or nil  width used by wrap-cell

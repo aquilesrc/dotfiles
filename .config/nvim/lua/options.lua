@@ -45,7 +45,16 @@ vim.opt.signcolumn = "yes"
 vim.opt.clipboard = "unnamedplus"
 
 vim.opt.scrolloff = 8
-vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
+vim.g.netrw_bufsettings = "noma nomod nu rnu nobl nowrap ro"
 vim.g.netrw_liststyle = 3
 
 vim.opt.pumborder = "single"
+
+-- Activate relative line numbers on manpages
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "man",
+    callback = function()
+        vim.opt_local.number = true
+        vim.opt_local.relativenumber = true
+    end,
+})

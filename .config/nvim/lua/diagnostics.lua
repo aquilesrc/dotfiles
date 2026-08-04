@@ -6,16 +6,16 @@ vim.diagnostic.config({
     update_in_insert = false,
 
     float = {
-        border = 'rounded',
-        source = 'if_many',
+        border = "rounded",
+        source = "if_many",
     },
 
     underline = true,
 
     virtual_text = {
         spacing = 2,
-        source = 'if_many',
-        prefix = '* ',
+        source = "if_many",
+        prefix = "* ",
 
     },
 

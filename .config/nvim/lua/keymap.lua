@@ -11,7 +11,7 @@ map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 
-map("n", "<leader>c", ":")        -- Enter command mode
+map("n", "<leader>;", ":")        -- Enter command mode
 map("n", "<leader>e", vim.cmd.Ex) -- Open netrw
 
 -- Buffer Bindings
@@ -25,8 +25,10 @@ map("n", "<leader>Q", vim.cmd.quitall) -- Close all buffers
 map("i", "<C-l>", "<Escape>%%a")
 
 -- LSP
-map("n", "<leader>f", vim.lsp.buf.format) -- Format current buffer
-map("n", "K", vim.lsp.buf.hover)          -- Hover documentation
+map("n", "<leader>f", vim.lsp.buf.format)       -- Format current buffer
+map("n", "K", vim.lsp.buf.hover)                -- Hover documentation
+map("n", "<leader>ca", vim.lsp.buf.code_action) -- Toggle code actions
+map("n", "gd", vim.lsp.buf.definition)          -- Go to definition
 
 -- Macros
 map("n", "<leader>rs", "<cmd>%s/ //g<CR>") -- Remove spaces
