@@ -11,8 +11,9 @@ map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 
-map("n", "<leader>;", ":")        -- Enter command mode
-map("n", "<leader>e", vim.cmd.Ex) -- Open netrw
+map("n", "<leader>;", ":")                              -- Enter command mode
+map("n", "<leader>E", vim.cmd.Ex)                       -- Open netrw
+map("n", "<leader>e", "<cmd>:lua MiniFiles.open()<CR>") -- Open mini-files
 
 -- Buffer Bindings
 map("n", "<leader>w", vim.cmd.write)   -- Write current buffer changes

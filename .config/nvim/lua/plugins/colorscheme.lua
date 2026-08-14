@@ -5,11 +5,14 @@ vim.pack.add({
 })
 
 require("gruber-black").setup({
-    transparent = true,
-    bold = false,
+    transparent_background = true,
+    bold_keywords = true,
     italic_strings = false,
     italic_comments = false,
     colored_cursor = false,
+
+    highlight_functions = false,
+    highlight_types = true
 })
 
 -- vim.g.moonflyTransparent = true
