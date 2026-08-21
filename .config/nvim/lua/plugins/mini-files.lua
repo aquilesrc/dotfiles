@@ -1,5 +1,5 @@
 vim.pack.add({
-    { src = 'https://github.com/nvim-mini/mini.files', version = 'stable' },
+    { src = "https://github.com/nvim-mini/mini.files", version = "stable" },
 })
 
 require("mini.files").setup({
@@ -11,19 +11,19 @@ require("mini.files").setup({
     },
 
     mappings = {
-        close       = 'q',
-        go_in       = 'l',
-        go_in_plus  = 'L',
-        go_out      = 'h',
-        go_out_plus = 'H',
+        close       = "q",
+        go_in       = "l",
+        go_in_plus  = "L",
+        go_out      = "h",
+        go_out_plus = "H",
         mark_goto   = "'",
-        mark_set    = 'm',
-        reset       = '<BS>',
-        reveal_cwd  = '@',
-        show_help   = 'g?',
-        synchronize = '=',
-        trim_left   = '<',
-        trim_right  = '>',
+        mark_set    = "m",
+        reset       = "<BS>",
+        reveal_cwd  = "@",
+        show_help   = "g?",
+        synchronize = "=",
+        trim_left   = "<",
+        trim_right  = ">",
     },
 
     options = {
