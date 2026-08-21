@@ -1,7 +1,7 @@
 vim.pack.add({
     -- { src = "https://github.com/bluz71/vim-moonfly-colors" },
-    -- { src = "https://github.com/aquilesrc/gruber-black.nvim" },
-    { src = "~/Projects/gruber-black.nvim" },
+    { src = "https://github.com/aquilesrc/gruber-black.nvim" },
+    -- { src = "~/Projects/gruber-black.nvim" },
 })
 
 require("gruber-black").setup({
