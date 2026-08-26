@@ -65,9 +65,9 @@ vim.lsp.config["pylsp"] = {
     },
 }
 
-vim.lsp.config["marksman"] = {
-    cmd = { "marksman" },
-    filetypes = { "markdown", },
+vim.lsp.config["zls"] = {
+    cmd = { "zls" },
+    filetypes = { "zig", },
 }
 
 vim.lsp.config["bash-lsp"] = {
@@ -75,4 +75,4 @@ vim.lsp.config["bash-lsp"] = {
     filetypes = { "bash", "sh" },
 }
 
-vim.lsp.enable({ "lua_ls", "clangd", "gopls", "rust_analyzer", "pylsp", "marksman", "bash-lsp" })
+vim.lsp.enable({ "lua_ls", "clangd", "gopls", "rust_analyzer", "pylsp", "zls", "bash-lsp" })

@@ -10,6 +10,7 @@ require("plugins.fzf")
 require("plugins.harpoon-cfg")
 require("plugins.mini-pairs")
 require("plugins.mini-completion")
-require("plugins.mini-files")
+-- require("plugins.mini-statusline")
+-- require("plugins.mini-files")
 
 -- require("plugins.cmp")
