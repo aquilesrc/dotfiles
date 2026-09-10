@@ -50,7 +50,7 @@ vim.g.netrw_liststyle = 3
 
 vim.opt.pumborder = "single"
 
--- Activate relative line numbers on manpages
+-- manpage relative lines
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "man",
     callback = function()

@@ -1,6 +1,8 @@
 vim.pack.add({
-    { src = "https://github.com/YousefHadder/markdown-plus.nvim" }
+    { src = "https://github.com/YousefHadder/markdown-plus.nvim" },
 })
+
+vim.g.maplocalleader = "\\"
 
 require("markdown-plus").setup({
     enabled = true,
@@ -20,15 +22,9 @@ require("markdown-plus").setup({
         footnotes = true,
     },
 
-    keymaps = {
-        enabled = true,
-    },
-
+    keymaps = { enabled = true, },
     filetypes = { "markdown" },
-
-    toc = {
-        initial_depth = 2,
-    },
+    toc = { initial_depth = 2, },
 
     thematic_break = {
         style = "---", -- "---" | "***" | "___"
@@ -42,20 +38,17 @@ require("markdown-plus").setup({
     code_block = {
         enabled = true,
         fence_style = "backtick", -- "backtick" | "tilde"
-        languages = { "lua", "python", "javascript", "typescript", "bash", "json", "yaml", "markdown", "rust", "go" },
+        languages = { "lua", "markdown" },
     },
 
     table = {
         enabled = true,
-        auto_format = true,
-        default_alignment = "center",
+        auto_format = true, -- Reserved; no effect today. Tables reformat via the table commands, not as you type.
+        default_alignment = "left",
         confirm_destructive = true,
-        width_mode = "literal", -- "literal" | "segment"  set "segment" so cells
-        -- containing <br> don' inflate column width
-        wrap_break = "<br>",    -- token used by wrap/break commands and the
-        -- cell-editor popup join
-        max_column_width = nil, -- integer ≥ 1 or nil  width used by wrap-cell
-        -- and auto-wrap; nil prompts each time
+        width_mode = "literal", -- "literal" | "segment"  set "segment" so cells containing <br> don't inflate column width
+        wrap_break = "<br>",    -- token used by wrap/break commands and the cell-editor popup join
+        max_column_width = nil, -- integer ≥ 1 or nil  width used by wrap-cell and auto-wrap; nil prompts each time
         auto_wrap = false,      -- when true (and max_column_width is set), the
         -- formatter auto-wraps cells exceeding the cap.
         -- Per-table opt-out: place
@@ -81,9 +74,13 @@ require("markdown-plus").setup({
 
     list = {
         smart_outdent = true,
+        whitespace = "single", -- "single" | "shiftwidth"
+        -- "single" (default): one space after the marker (standard Markdown)
+        -- "shiftwidth": pad so content aligns to a whitespace_width column block (relative to the item's indent)
+        whitespace_width = 4, -- integer ≥ 1; block width used when whitespace = "shiftwidth"
         checkbox_completion = {
             enabled = false,
-            format = "emoji", -- "emoji" | "comment" | "dataview" | "parenthetical"
+            format = "comment", -- "emoji" | "comment" | "dataview" | "parenthetical"
             date_format = "%Y-%m-%d",
             remove_on_uncheck = true,
             update_existing = true,
@@ -97,12 +94,3 @@ require("markdown-plus").setup({
         },
     },
 })
-
------------------
--- Keybindings --
------------------
-vim.keymap.set("n", "<leader>mtc", "<Plug>(MarkdownPlusTableCreate)")
-vim.keymap.set("n", "<leader>mtf", "<Plug>(MarkdownPlusTableFormat)")
-vim.keymap.set("n", "<leader>mtn", "<Plug>(MarkdownPlusTableNormalize)")
-vim.keymap.set("n", "<leader>mtj", "<Plug>(MarkdownPlusTableMoveRowDown)")
-vim.keymap.set("n", "<leader>mtk", "<Plug>(MarkdownPlusTableMoveRowUp)")
