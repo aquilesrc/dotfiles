@@ -17,27 +17,31 @@ input "type:keyboard" {
     xkb_options caps:escape
 }
   
+# Display config
+output eDP-1 disable
+output HDMI-A-1 mode 1920x1080@75Hz
+
 # Variables
 set $super Mod4
 set $alt Mod1
-set $terminal kitty
-set $editor $terminal nvim
+set $terminal alacritty
+set $editor $terminal -e nvim
 set $launcher rofi -drun-display-format "{name}" -show drun
 set $browser firefox
-set $fileManager $terminal -e ranger
+set $fileManager $terminal -e lf
 
 # Appearance
 # font pango:JetBrainsMono NF SemiBold 9
-font pango:IosevkaNF SemiBold 10
+font pango:IosevkaNF SemiBold 11
 
-# output * bg "~/Imagens/Wallpapers/od_tetris.png" fill
 output * bg #1e2127 solid_color
+# output * bg "~/Imagens/Wallpapers/house-garden.png" fill
 
 # Cursor
-seat seat0 hide_cursor 3000
+# seat seat0 hide_cursor 3000
 
 # Borders
-default_border pixel 2
+default_border pixel 1
 default_floating_border normal
 title_align center
 hide_edge_borders smart
@@ -126,7 +130,7 @@ bindsym $super+Shift+Return exec $editor
 bindsym $super+b exec $browser
 bindsym $super+d exec $launcher
 bindsym $super+e exec $fileManager
-bindsym $super+Shift+e exec pcmanfm
+bindsym $super+Shift+e exec thunar
 bindsym $super+Shift+c exec $terminal -e qalc
 bindsym $super+Shift+z exec zathura
 bindsym $super+Escape exec $terminal -e btop
